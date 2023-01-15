@@ -20,7 +20,7 @@
                 <div class="archives-year">
                     <a href="{{ $archivesPage.RelPermalink }}#{{ $id }}">
                         {{ if eq $index $limit }}
-                            <span class="year">{{ T "widget.archives.more" }}</span>
+                            <span class="year">⋯</span>
                         {{ else }}
                             <span class="year">{{ .Key }}</span>
                             <span class="count">{{ len $item.Pages }}</span>
