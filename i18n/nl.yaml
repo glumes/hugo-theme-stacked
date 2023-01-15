@@ -28,13 +28,6 @@ notFound:
     subtitle:
         other: Deze pagina bestaat niet.
 
-widget:
-    archives:
-        title:
-            other: Archief
-        more:
-            other: Meer
-
 search:
     title:
         other: Zoeken

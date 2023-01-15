@@ -39,14 +39,6 @@ notFound:
     subtitle:
         other: Halaman yang Anda akses tidak ditemukan.
 
-widget:
-    archives:
-        title:
-            other: Arsip
-
-        more:
-            other: Lebih
-
 search:
     title:
         other: Cari

@@ -40,14 +40,6 @@ notFound:
     subtitle:
         other: 頁面不存在
 
-widget:
-    archives:
-        title:
-            other: Archives
-
-        more:
-            other: 更多
-
 search:
     title:
         other: 搜尋

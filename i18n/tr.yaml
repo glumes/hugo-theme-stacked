@@ -28,13 +28,6 @@ notFound:
     subtitle:
         other: Aradığınız sayfa mevcut değil.
 
-widget:
-    archives:
-        title:
-            other: Arşiv
-        more:
-            other: Daha fazla
-
 search:
     title:
         other: Arama

@@ -26,14 +26,6 @@ notFound:
     subtitle:
         other: 页面不存在
 
-widget:
-    archives:
-        title:
-            other: 归档
-
-        more:
-            other: 更多
-
 search:
     title:
         other: 搜索

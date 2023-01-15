@@ -40,14 +40,6 @@ notFound:
     subtitle:
         other: Aquesta pàgina no existeix
 
-widget:
-    archives:
-        title:
-            other: Arxiu
-
-        more:
-            other: Més
-
 search:
     title:
         other: Cerca

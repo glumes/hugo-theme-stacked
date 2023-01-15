@@ -26,14 +26,6 @@ notFound:
     subtitle:
         other: 指定されたページは存在しません。
 
-widget:
-    archives:
-        title:
-            other: アーカイブ
-
-        more:
-            other: さらに見る
-
 search:
     title:
         other: 検索

@@ -40,14 +40,6 @@ notFound:
     subtitle:
         other: এই পাতাটি বিদ্যমান নেই
 
-widget:
-    archives:
-        title:
-            other: আর্কাইভ
-
-        more:
-            other: আরও
-
 search:
     title:
         other: অনুসন্ধান

@@ -40,14 +40,6 @@ notFound:
     subtitle:
         other: این صحه وجود ندارد
 
-widget:
-    archives:
-        title:
-            other: آرشیو
-
-        more:
-            other: بیشتر
-
 search:
     title:
         other: جستجو

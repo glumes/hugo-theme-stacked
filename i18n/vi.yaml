@@ -40,14 +40,6 @@ notFound:
   subtitle:
     other: Trang này không tồn tại
 
-widget:
-  archives:
-    title:
-      other: Lưu trữ
-
-    more:
-      other: Còn nữa
-
 search:
   title:
     other: Tìm kiếm

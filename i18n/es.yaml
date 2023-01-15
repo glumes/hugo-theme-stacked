@@ -40,14 +40,6 @@ notFound:
     subtitle:
         other: Esta página no existe
 
-widget:
-    archives:
-        title:
-            other: Archivo
-
-        more:
-            other: Más
-
 search:
     title:
         other: Búsqueda

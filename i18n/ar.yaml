@@ -40,14 +40,6 @@ notFound:
     subtitle:
         other: تعذر العثور على الصفحة المطلوبة.
 
-widget:
-    archives:
-        title:
-            other: الارشيفات
-
-        more:
-            other: اكثر
-
 search:
     title:
         other: بحث

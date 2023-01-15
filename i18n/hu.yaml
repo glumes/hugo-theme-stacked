@@ -40,14 +40,6 @@ notFound:
     subtitle:
         other: Ez az oldal nem létezik
 
-widget:
-    archives:
-        title:
-            other: Archívum
-
-        more:
-            other: Több
-
 search:
     title:
         other: Keresés
