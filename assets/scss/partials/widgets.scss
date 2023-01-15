@@ -67,6 +67,11 @@
         &:last-of-type a {
             padding-top: 4px;
             padding-bottom: 4px;
+
+            span.year {
+                color: var(--card-text-color-tertiary);
+                font-weight: normal;
+            }
         }
     }
 }
