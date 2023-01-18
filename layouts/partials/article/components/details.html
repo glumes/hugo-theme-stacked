@@ -1,6 +1,9 @@
 <div class="article-details">
     {{ if .Params.categories }}
     <header class="article-category">
+        {{ if gt (len (.GetTerms "categories")) 1 }}
+            {{ warnf "Multiple categories in article %s" .LinkTitle }}
+        {{ end }}
         {{ range (.GetTerms "categories") }}
             <a href="{{ .RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
                 {{ .LinkTitle }}
