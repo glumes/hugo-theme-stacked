@@ -66,9 +66,19 @@
                 }
             }
 
-            .article-tags {
+            .article-tags span {
+                display: flex;
+                gap: 8px;
+
                 flex-wrap: wrap;
                 text-transform: unset;
+
+                a {
+                    color: var(--card-text-color-tertiary); 
+                    &:hover {
+                        color: var(--accent-color);
+                    }
+                }
             }
 
             .article-copyright,
