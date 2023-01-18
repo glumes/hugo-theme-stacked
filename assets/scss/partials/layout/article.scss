@@ -271,14 +271,6 @@
         opacity: 0.55;
     }
 
-    code {
-        color: var(--code-text-color);
-        background-color: var(--code-background-color);
-        padding: 2px 4px;
-        border-radius: var(--tag-border-radius);
-        font-family: var(--code-font-family);
-    }
-
     .gallery {
         position: relative;
         display: flex;
@@ -432,5 +424,17 @@
     .katex-display > .katex {
         overflow-x: auto;
         overflow-y: hidden;
+    }
+}
+
+// style for common elements shared between description and article body
+.article-content,
+.article-subtitle {
+    code {
+        color: var(--code-text-color);
+        background-color: var(--code-background-color);
+        padding: 2px 4px;
+        border-radius: var(--tag-border-radius);
+        font-family: var(--code-font-family);
     }
 }
