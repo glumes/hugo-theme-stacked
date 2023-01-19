@@ -63,8 +63,10 @@
                 color: var(--card-text-color-tertiary);
             }
         }
+    }
 
-        &:last-of-type a {
+    .archives-ellipsis {
+        a {
             padding-top: 4px;
             padding-bottom: 4px;
 
@@ -72,7 +74,7 @@
                 color: var(--card-text-color-tertiary);
                 font-weight: normal;
             }
-        }
+        }   
     }
 }
 
