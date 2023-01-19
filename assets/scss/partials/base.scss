@@ -31,8 +31,16 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb);
 }
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover);
+}
 
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
-/**/
+
+/* style of selection area */
+::selection {
+    color: var(--selection-text-color);
+    background: var(--selection-background-color);
+}
