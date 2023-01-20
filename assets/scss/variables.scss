@@ -127,6 +127,10 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --selection-text-color: #f8f8f8;
     --selection-background-color: #808080;
 
+    --panel-background-color: rgb(219, 219, 219);
+    --panel-secondary-color: rgb(245, 245, 245);
+    --panel-hover-color: rgb(234, 234, 234);
+
     &[data-scheme="dark"] {
         --code-background-color: #272822;
         --code-text-color: rgba(255, 255, 255, 0.9);
@@ -138,6 +142,10 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
         
         --selection-text-color: #808080;
         --selection-background-color: #e6e6e6;
+
+        --panel-background-color: rgb(73, 73, 73);
+        --panel-secondary-color: rgb(114, 114, 114);
+        --panel-hover-color: rgb(92, 92, 92);
     }
 }
 
