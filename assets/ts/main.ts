@@ -12,6 +12,7 @@ import createElement from 'ts/createElement';
 import StackColorScheme from 'ts/colorScheme';
 import { setupScrollspy } from 'ts/scrollspy';
 import { setupSmoothAnchors } from "ts/smoothAnchors";
+import { setupTabSwitchers } from "ts/tabs";
 
 let Stack = {
     init: () => {
@@ -91,6 +92,14 @@ let Stack = {
             });
         });
 
+        /**
+         * Register click events for tabular navigation buttons
+         */
+        setupTabSwitchers();
+
+        /**
+         * Register theme switch
+         */
         new StackColorScheme(document.getElementById('dark-mode-toggle'));
     }
 }
