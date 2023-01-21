@@ -1,14 +1,33 @@
 <section class="widget navbar">
+    {{ if .Context.Scratch.Get "hasComments" }}
     <a class="widget-link" href="#comments-container">
         <div class="widget-icon">
             {{ partial "helper/icon" "messages" }}
         </div>
         <h2 class="widget-title section-title"> 评论 </h2>
     </a>
+    {{ end }}
+
     <div class="widget-link" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
         <div class="widget-icon">
             {{ partial "helper/icon" "arrows-up" }}
         </div>
         <h2 class="widget-title section-title"> 返回顶部 </h2>
     </div>
+
+    {{ if .Context.Scratch.Get "showTOC" }}
+    <div class="widget-link" id="toggle-sidebar-close">
+        <div class="widget-icon">
+            {{ partial "helper/icon" "arrow-bar-right" }}
+        </div>
+        <h2 class="widget-title section-title"> 折叠 </h2>
+    </div>
+
+    <div class="widget-link" id="toggle-sidebar-open">
+        <div class="widget-icon">
+            {{ partial "helper/icon" "arrow-bar-left" }}
+        </div>
+        <h2 class="widget-title section-title"> 展开 </h2>
+    </div>
+    {{ end }}
 </section>

@@ -1,5 +1,5 @@
 <script src="//cdn.jsdelivr.net/npm/twikoo@1.5.11/dist/twikoo.all.min.js"></script>
-<div id="tcomment"></div>
+<div id="comments-container"></div>
 <style>
     .twikoo {
         background-color: var(--card-background);
@@ -38,7 +38,7 @@
 <script>
     twikoo.init({
         envId: '{{- .envId -}}',
-        el: '#tcomment',
+        el: '#comments-container',
         {{- with .region -}}
         region: '{{- . -}}',
         {{- end -}}

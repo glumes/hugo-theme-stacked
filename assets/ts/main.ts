@@ -13,6 +13,7 @@ import StackColorScheme from 'ts/colorScheme';
 import { setupScrollspy } from 'ts/scrollspy';
 import { setupSmoothAnchors } from "ts/smoothAnchors";
 import { setupTabSwitchers } from "ts/tabs";
+import { setupRightbarToggle } from "ts/tocAdapter";
 
 let Stack = {
     init: () => {
@@ -96,6 +97,11 @@ let Stack = {
          * Register click events for tabular navigation buttons
          */
         setupTabSwitchers();
+        
+        /**
+         * Register click event for the right sidebar toggle
+         */
+        setupRightbarToggle();
 
         /**
          * Register theme switch

@@ -15,11 +15,11 @@
     }
 </style>
 
-<div id="comment-section"></div>
+<div id="comments-container"></div>
 
 <script>
     initComments({
-        node: document.getElementById("comment-section"),
+        node: document.getElementById("comments-container"),
         defaultHomeserverUrl: "{{ .defaultHomeserverUrl | safeJS }}",
         serverName: "{{ .serverName }}",
         siteName: "{{ .siteName }}",

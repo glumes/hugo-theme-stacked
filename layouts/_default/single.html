@@ -1,26 +1,37 @@
 {{ define "body-class" }}
     article-page
     {{/* 
-        Enable the right sidebar if
-            - Widget different from 'TOC' is enabled
+        Enable the right sidebar if either
             - TOC is enabled and not empty
+            - Navbar has buttons other than 'back to top'
+            - Widget different from 'toc' and 'navbar' is enabled
     */}}
-    {{- $HasWidgetNotTOC := false -}}
+
+    {{- $hasTOC := ge (len .TableOfContents) 100 -}}
+    {{- $hasComments := and .Site.Params.comments.enabled (ne .Params.comments false) }}
+
+    {{- $hasOtherWidgets := false -}}
     {{- $TOCWidgetEnabled := false -}}
+    {{- $navbarWidgetEnabled := false -}}
+
     {{- range .Site.Params.widgets.page -}}
-        {{- if ne .type "toc" -}}
-            {{ $HasWidgetNotTOC = true -}}
-        {{- else -}}
+        {{- if eq .type "toc" -}}
             {{ $TOCWidgetEnabled = true -}}
+        {{- else if eq .type "navbar" -}}
+            {{ $navbarWidgetEnabled = true -}}
+        {{- else -}}
+            {{ $hasOtherWidgets = true -}}
         {{- end -}}
     {{- end -}}
 
-    {{- $TOCManuallyDisabled := eq .Params.toc false -}}
-    {{- $TOCEnabled := and (not $TOCManuallyDisabled) $TOCWidgetEnabled -}}
-    {{- $hasTOC := ge (len .TableOfContents) 100 -}}
-    {{- .Scratch.Set "TOCEnabled" (and $TOCEnabled $hasTOC) -}}
-    
-    {{- .Scratch.Set "hasWidget" (or $HasWidgetNotTOC (and $TOCEnabled $hasTOC)) -}}
+    {{- $showTOC := and (and $TOCWidgetEnabled $hasTOC) (ne .Params.toc false) -}}
+    {{- $showNavbar := and $navbarWidgetEnabled (or $showTOC $hasComments) }}
+
+    {{- .Scratch.Set "showTOC" $showTOC -}}
+    {{- .Scratch.Set "showNavbar" $showNavbar -}}
+    {{- .Scratch.Set "compactNavbar" (and (not $hasOtherWidgets) (not $showTOC)) -}}
+    {{- .Scratch.Set "hasWidget" (or $hasOtherWidgets (or $showNavbar $showTOC)) -}}
+    {{- .Scratch.Set "hasComments" $hasComments -}}
 {{ end }}
 
 {{ define "main" }}
@@ -42,5 +53,5 @@
 {{ end }}
 
 {{ define "right-sidebar" }}
-    {{ if .Scratch.Get "hasWidget" }}{{ partial "sidebar/right.html" (dict "Context" . "Scope" "page") }}{{ end}}
+    {{ if .Scratch.Get "hasWidget" }}{{ partial "sidebar/right.html" (dict "Context" . "Scope" "page") }}{{ end }}
 {{ end }}

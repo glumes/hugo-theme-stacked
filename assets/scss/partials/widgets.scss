@@ -92,6 +92,22 @@
 
 /* Navbar widget */
 .widget.navbar {
+    gap: var(--navitem-separation);
+    .widget-link {
+        text-align: center;
+    }
+}
+.right-sidebar .widget.navbar {
     flex-direction: row;
-    gap: 20px;
+
+    #toggle-sidebar-open {
+        display: none;
+    }
+}
+.right-sidebar--compact .widget.navbar {
+    flex-direction: column;
+
+    #toggle-sidebar-close {
+        display: none;
+    }
 }

@@ -1,5 +1,5 @@
 {{- with .Site.Params.comments.gitalk -}}
-<div id="gitalk-container"></div>
+<div id="comments-container"></div>
 <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"
@@ -20,11 +20,11 @@
         if (
             ["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1
         ) {
-            document.getElementById("gitalk-container").innerHTML =
+            document.getElementById("comments-container").innerHTML =
                 "Gitalk comments not available by default when the website is previewed locally.";
             return;
         }
-        gitalk.render("gitalk-container");
+        gitalk.render("comments-container");
     })();
 </script>
 {{ end }}
