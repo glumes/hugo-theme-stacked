@@ -4,12 +4,12 @@
 {{- if $query -}}
     {{- $archivesPage := index $query 0 -}}
     <section class="widget archives">
-        <div class="widget-icon">
-            {{ partial "helper/icon" "infinity" }}
-        </div>
-        <h2 class="widget-title section-title">
-            <a class="widget-link" href="{{ $archivesPage.RelPermalink }}">{{ default "Archives" $archivesPage.Title }}</a>
-        </h2>
+        <a class="widget-link" href="{{ $archivesPage.RelPermalink }}">
+            <div class="widget-icon">
+                {{ partial "helper/icon" "infinity" }}
+            </div>
+            <h2 class="widget-title section-title">{{ default "Archives" $archivesPage.Title }}</h2>
+        </a>
 
         {{ $pages := where $context.Site.RegularPages "Type" "in" $context.Site.Params.mainSections }}
         {{ $notHidden := where $context.Site.RegularPages "Params.hidden" "!=" true }}

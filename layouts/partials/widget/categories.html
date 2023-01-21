@@ -4,12 +4,12 @@
 {{- if $query -}}
     {{- $categoriesPage := index $query 0 -}}
     <section class="widget tagCloud">
-        <div class="widget-icon">
-            {{ partial "helper/icon" "categories" }}
-        </div>
-        <h2 class="widget-title section-title">
-            <a class="widget-link" href="{{ $categoriesPage.RelPermalink }}">{{ default "Categories" $categoriesPage.Title }}</a>
-        </h2>
+        <a class="widget-link" href="{{ $categoriesPage.RelPermalink }}">
+            <div class="widget-icon">
+                {{ partial "helper/icon" "categories" }}
+            </div>
+            <h2 class="widget-title section-title">{{ default "Categories" $categoriesPage.Title }}</h2>
+        </a>
 
         <div class="tagCloud-tags">
             {{ range first $limit $context.Site.Taxonomies.categories.ByCount }}

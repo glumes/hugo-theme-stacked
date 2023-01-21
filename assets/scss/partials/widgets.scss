@@ -10,10 +10,22 @@
             color: var(--body-text-color);
         }
     }
+
+    .widget-link .widget-title {
+        color: var(--accent-color);
+    }
+    .widget-link:hover {
+        .widget-title, .widget-icon svg {
+            color: var(--accent-color-darker);
+        }
+    }
+    div.widget-link {
+        cursor: pointer;
+    }
 }
 
 /* Tag cloud widget */
-.tagCloud {
+.widget.tagCloud {
     .tagCloud-tags {
         display: flex;
         flex-wrap: wrap;
@@ -78,10 +90,8 @@
     }
 }
 
-/* Color for widget titles */
-.widget-title a.widget-link {
-    color: var(--accent-color);
-    &:hover {
-        color: var(--accent-color-darker);
-    }
+/* Navbar widget */
+.widget.navbar {
+    flex-direction: row;
+    gap: 20px;
 }

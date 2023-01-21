@@ -6,7 +6,6 @@
     .tab-panel {
         margin-left: calc((var(--card-padding)) * -0.5);
         margin-right: calc((var(--card-padding)) * -0.5);
-        border-radius: var(--card-border-radius);
 
         /// Styles of tabview body
         .tab-content {
@@ -14,6 +13,7 @@
             clear: both;
             box-shadow: var(--shadow-l1);
             background-color: var(--panel-background-color);
+            border-radius: 0 0 var(--panel-border-radius) var(--panel-border-radius);
 
             .tab-item {
                 padding: 4px var(--card-padding);
@@ -29,14 +29,13 @@
                 blockquote,
                 figure,
                 .highlight,
-                pre,
                 .gallery,
                 .video-wrapper,
                 .table-wrapper,
                 .s_video_simple {
-                    margin-left: calc((var(--card-padding)) * -0.5);
-                    margin-right: calc((var(--card-padding)) * -0.5);
-                    width: calc(100% + var(--card-padding));
+                    margin-left: calc((var(--card-padding)) * -1);
+                    margin-right: calc((var(--card-padding)) * -1);
+                    width: calc(100% + var(--card-padding) * 2);
                 }
 
                 pre {
@@ -53,8 +52,8 @@
             height: 44px;
             margin: 0;
             padding: 8px 10px;
-            background: var(--panel-secondary-color);
-            border-radius: 5px 5px 0 0;
+            background: var(--panel-titlebar-color);
+            border-radius: var(--panel-border-radius) var(--panel-border-radius) 0 0;
 
             .tab-nav-item {
                 position: relative;
