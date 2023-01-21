@@ -31,4 +31,27 @@ function setupRightbarToggle() {
     document.getElementById(TOGGLE_OPEN_ID).addEventListener("click", e => openRightSidebar());
 }
 
-export { setupRightbarToggle };
+let lastScrollTop = 0;
+let navbarVisible = false;
+function updateNavbarVisibility() {
+    const navbar = document.querySelector(".bottom-navbar-container") as HTMLElement;
+    const top = window.pageYOffset || document.documentElement.scrollTop;
+    if (top < lastScrollTop) {
+        if (!navbarVisible) {
+            navbar.style.bottom = "16px";
+            navbarVisible = true;
+        }
+    } else {
+        if (navbarVisible) {
+            navbar.style.bottom = "-64px";
+            navbarVisible = false
+        }
+    }
+    lastScrollTop = top;
+}
+
+function setupBottomNavbar() {
+    window.addEventListener("scroll", e => updateNavbarVisibility());
+}
+
+export { setupRightbarToggle, setupBottomNavbar };

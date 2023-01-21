@@ -47,6 +47,7 @@
         {{ partial "comments/include" . }}
     {{ end }}
 
+    {{ partialCached "footer/navbar" . }}
     {{ partialCached "footer/footer" . }}
 
     {{ partialCached "article/components/photoswipe" . }}
