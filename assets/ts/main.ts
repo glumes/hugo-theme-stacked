@@ -13,7 +13,8 @@ import StackColorScheme from 'ts/colorScheme';
 import { setupScrollspy } from 'ts/scrollspy';
 import { setupSmoothAnchors } from "ts/smoothAnchors";
 import { setupTabSwitchers } from "ts/tabs";
-import { setupRightbarToggle, setupBottomNavbar } from "ts/tocAdapter";
+import { setupRightbarToggle, setupBottomNavbar } from "ts/navbar";
+import { setupPanelToggles } from "ts/panel";
 
 let Stack = {
     init: () => {
@@ -27,6 +28,11 @@ let Stack = {
             new StackGallery(articleContent);
             setupSmoothAnchors();
             setupScrollspy();
+
+            /**
+             * Register panel open toggles
+             */
+            setupPanelToggles();
         }
 
         /**

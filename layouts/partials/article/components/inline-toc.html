@@ -1,0 +1,14 @@
+{{ if .Scratch.Get "showTOC" }}
+<div class="article-toc active-class">
+    <div class="article-toc-title">
+        {{ partial "helper/icon" "hash" }}
+        <span>{{ T "article.tableOfContents" }}</span>
+        {{ partial "helper/icon" "chevron-right" }}
+    </div>
+    <div class="article-toc-body">
+        <section>
+            {{ replace .TableOfContents `id="TableOfContents"` `id="TableOfContents-inline"` | safeHTML }}
+        </section>
+    </div>
+</div>
+{{ end }}

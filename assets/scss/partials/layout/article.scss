@@ -27,6 +27,98 @@
                 padding: var(--card-padding);
                 padding-bottom: 0;
             }
+
+            .article-toc {
+                margin: var(--card-padding) calc((var(--card-padding)) * 0.5);
+                display: flex;
+                flex-direction: column;
+
+                @include respond(lg) {
+                    display: none;
+                }
+
+                .article-toc-title {
+                    color: var(--body-text-color);
+                    font-weight: bold;
+                    margin: 0;
+                    padding: 0 calc((var(--card-padding)) * 0.5);
+                    background: var(--panel-titlebar-color);
+                    border-radius: var(--panel-border-radius) var(--panel-border-radius) 0 0;
+                    transition: border-radius 0.3s ease;
+
+                    display: table;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: var(--panel-hover-color);
+                    }
+
+                    span {
+                        margin: 8px 0;
+                        display: table-cell;
+                        user-select: none;
+                        vertical-align: middle;
+                        width: 100%;
+                    }
+
+                    svg {
+                        margin: 6px -6px;
+                        width: 24px;
+                        height: 24px;
+                        stroke-width: 2;
+                        display: table-cell;
+
+                        &:first-child {
+                            margin-right: 2px;
+                        }
+                        &:last-child {
+                            transition: transform 0.3s ease;
+                        }
+                    }    
+                }
+
+                .article-toc-body {
+                    box-shadow: var(--shadow-l1);
+                    background-color: var(--panel-background-color);
+                    border-radius: 0 0 var(--panel-border-radius) var(--panel-border-radius);
+
+                    height: auto;
+                    transition: height 0.3s ease, border-radius 0.3s ease;
+                    overflow: hidden;
+
+                    section {
+                        display: block;
+                        ol {
+                            list-style-type: none;
+                            counter-reset: item;
+                            padding-inline-start: calc((var(--card-padding)) * 0.5);
+                
+                            li {
+                                margin: 15px 0px;
+    
+                                a:first-of-type::before {
+                                    counter-increment: item;
+                                    content: counters(item, ".") ". ";
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:not(.active-class) {
+                    .article-toc-title {
+                        border-radius: var(--panel-border-radius);
+
+                        svg:last-child {
+                            transform: rotate(90deg);
+                        }
+                    }
+                    .article-toc-body {
+                        border-radius: var(--panel-border-radius);
+                    }
+                }
+            }
         }
 
         .article-content {

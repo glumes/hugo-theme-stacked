@@ -104,10 +104,16 @@
         display: none;
     }
 }
-.right-sidebar--compact .widget.navbar {
-    flex-direction: column;
-
-    #toggle-sidebar-close {
-        display: none;
+.right-sidebar--compact{
+    .widget {
+        margin: 4px 0px;
     }
+    .widget.navbar {
+        flex-direction: column;
+        gap: 4px;
+    
+        #toggle-sidebar-close {
+            display: none;
+        }
+    }    
 }
