@@ -1,13 +1,14 @@
 
-function togglePanel(panel: HTMLDivElement, body_selector: string, height: string) {
+function togglePanel(panel: HTMLDivElement, body_selector: string, offset) {
     const body = panel.querySelector(body_selector) as HTMLDivElement;
-    const contents = body.querySelector("section");
     if (panel.classList.contains("active-class")) {
         panel.classList.remove("active-class");
         body.style.height = "0";
     } else {
         panel.classList.add("active-class");
-        body.style.height = height;
+
+        const contents = body.querySelector("section");
+        body.style.height = contents.clientHeight + offset + "px";
     }
 }
 
@@ -24,7 +25,7 @@ function setupPanelToggles() {
         toc_contents.parentElement.style.height = height; 
 
         toc_title.addEventListener("click", e => togglePanel(
-            toc_panel as HTMLDivElement, "div.article-toc-body", height
+            toc_panel as HTMLDivElement, "div.article-toc-body", 32
         ));
     }
 
@@ -33,13 +34,13 @@ function setupPanelToggles() {
         // set an initial value so that the animation works at the first time
         const panel = title.parentElement as HTMLDivElement;
         const contents = panel.querySelector("section");
-        const height = contents.clientHeight + "px";
 
         if (panel.classList.contains("active-class")) {
+            const height = contents.clientHeight + "px";
             contents.parentElement.style.height = height;
         }
 
-        title.addEventListener("click", e => togglePanel(panel, "div.article-notice-body", height));
+        title.addEventListener("click", e => togglePanel(panel, "div.article-notice-body", 0));
     })
 }
 

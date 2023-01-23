@@ -60,7 +60,7 @@
 
         section {
             display: block;
-            padding: var(--card-padding);
+            padding: calc((var(--card-padding)) * 0.5) var(--card-padding);
         }
     }
 
