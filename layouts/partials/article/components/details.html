@@ -19,9 +19,9 @@
             </a>
         </h2>
     
-        {{ with .Params.description }}
+        {{ if .Params.description }}
         <h3 class="article-subtitle">
-            {{ . | markdownify }}
+            {{ .Params.description | .Page.RenderString }}
         </h3>
         {{ end }}
     </div>

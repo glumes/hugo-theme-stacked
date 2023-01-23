@@ -41,20 +41,20 @@
                     color: var(--body-text-color);
                     font-weight: bold;
                     margin: 0;
-                    padding: 0 calc((var(--card-padding)) * 0.5);
+                    padding: 8px calc((var(--card-padding)) * 0.5);
                     background: var(--panel-titlebar-color);
                     border-radius: var(--panel-border-radius) var(--panel-border-radius) 0 0;
                     transition: border-radius 0.3s ease;
 
-                    display: table;
+                    display: flex;
                     cursor: pointer;
+                    align-items: center;
 
                     &:hover {
                         background-color: var(--panel-hover-color);
                     }
 
                     span {
-                        margin: 8px 0;
                         display: table-cell;
                         user-select: none;
                         vertical-align: middle;
@@ -62,19 +62,21 @@
                     }
 
                     svg {
-                        margin: 6px -6px;
                         width: 24px;
                         height: 24px;
                         stroke-width: 2;
                         display: table-cell;
 
                         &:first-child {
-                            margin-right: 2px;
+                            margin-right: 5px;
+                            margin-left: -4px;
                         }
                         &:last-child {
+                            margin-right: -4px;
+                            transform: rotate(-90deg);
                             transition: transform 0.3s ease;
                         }
-                    }    
+                    }
                 }
 
                 .article-toc-body {
@@ -88,10 +90,11 @@
 
                     section {
                         display: block;
+
                         ol {
                             list-style-type: none;
                             counter-reset: item;
-                            padding-inline-start: calc((var(--card-padding)) * 0.5);
+                            padding-inline-start: var(--card-padding);
                 
                             li {
                                 margin: 15px 0px;

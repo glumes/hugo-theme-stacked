@@ -1,0 +1,35 @@
+{{- $title := default (.Get 0) (.Get "title") -}}
+{{- $style := default "_unset" (default (.Get 1) (.Get "style")) -}}
+{{- $fold := default false (.Get "fold") -}}
+{{- $hasInner := gt (len (trim .Inner " \r\n")) 0 }}
+
+{{ $class := slice "article-notice" }}
+{{ if not $fold }}
+    {{ $class = $class | append "active-class" }}
+{{ end }}
+{{ if (ne $style "_unset") }}
+    {{ $class = $class | append $style }}
+{{ end }}
+
+<div class="{{ delimit $class ` ` }}">
+    <div class={{ if $hasInner }}"article-notice-title"{{ else }}"article-notice-title-only"{{ end }}>
+        {{ with .Get "icon" }}
+            {{ partial "helper/icon" . }}
+        {{ else }}
+            {{ if (ne $style "_unset") }}
+                {{ partial "helper/icon" (printf "notice/%s" $style) }}
+            {{ end }}
+        {{ end }}
+        <span>{{ $title }}</span>
+        {{ if $hasInner }}
+            {{ partial "helper/icon" "chevron-right" }}
+        {{ end }}
+    </div>
+    {{ if $hasInner }}
+    <div class="article-notice-body" {{ if $fold }}style="height: 0px;"{{ end }}>
+        <section>
+            {{ .Inner | .Page.RenderString }}
+        </section>
+    </div>
+    {{ end }}
+</div>
