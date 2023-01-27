@@ -56,3 +56,10 @@ footer:
 
     designedBy:
         other: 主題 {{ .Theme }} 由 {{ .DesignedBy }} 設計，{{ .ModifiedBy }} 修改
+
+rss:
+    readMore:
+        other: "前往{{ .PageLink }}以閱讀全文。"
+
+    linkTitle:
+        other: "頁面"

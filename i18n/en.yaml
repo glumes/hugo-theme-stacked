@@ -56,3 +56,10 @@ footer:
 
     designedBy:
         other: Theme {{ .Theme }} designed by {{ .DesignedBy }}, modified by {{ .ModifiedBy }}
+
+rss:
+    readMore:
+        other: "Go to {{ .PageLink }} to read full text."
+
+    linkTitle:
+        other: "webpage"

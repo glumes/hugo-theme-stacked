@@ -38,7 +38,14 @@ search:
 
 footer:
     builtWith:
-        other: Built with {{ .Generator }}
+        other: 使用 {{ .Generator }} 构建
 
     designedBy:
         other: 主题 {{ .Theme }} 由 {{ .DesignedBy }} 设计，{{ .ModifiedBy }} 修改
+
+rss:
+    readMore:
+        other: "前往{{ .PageLink }}以阅读全文。"
+
+    linkTitle:
+        other: "网页"
