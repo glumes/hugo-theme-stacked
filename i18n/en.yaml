@@ -23,6 +23,18 @@ article:
     tableOfContents:
         other: Table of contents
 
+    backToTop:
+        other: Back Top
+
+    comments:
+        other: Comments
+
+    sidebarClose:
+        other: Collapse
+
+    sidebarOpen:
+        other: Expand
+
     relatedContent:
         other: Related content
 

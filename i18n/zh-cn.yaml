@@ -11,6 +11,18 @@ article:
     tableOfContents:
         other: 目录
 
+    backToTop:
+        other: 返回顶部
+
+    comments:
+        other: 评论
+
+    sidebarClose:
+        other: 折叠
+
+    sidebarOpen:
+        other: 展开
+
     relatedContent:
         other: 相关文章
 
@@ -48,4 +60,4 @@ rss:
         other: "前往{{ .PageLink }}以阅读全文。"
 
     linkTitle:
-        other: "网页"
+        other: 网页
