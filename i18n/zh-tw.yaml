@@ -11,6 +11,18 @@ article:
     tableOfContents:
         other: 目錄
 
+    backToTop:
+        other: 頂部
+
+    comments:
+        other: 評論
+
+    sidebarClose:
+        other: 折叠
+
+    sidebarOpen:
+        other: 展开
+
     relatedContent:
         other: 相關文章
 

@@ -67,7 +67,7 @@
     }
 }
 
-.sidebar.right-sidebar {
+.right-sidebar {
     width: 100%;
     display: none;
     flex-direction: column;
@@ -83,8 +83,9 @@
     }
 }
 
-.sidebar.right-sidebar--compact {
-    width: var(--navbar-compact-width);
+.right-sidebar--compact {
+    width: 32px;
+    display: none;
     flex-direction: column;
     gap: var(--widget-separation);
 
@@ -95,6 +96,10 @@
     @include respond(lg) {
         padding-top: var(--main-top-padding);
         padding-bottom: var(--main-top-padding);
+    }
+
+    h2 {
+        display: none;
     }
 }
 

@@ -17,6 +17,13 @@
         }
     }
 
+    .right-sidebar--compact {
+        order: -1;
+        @include respond(lg) {
+            display: block;
+        }
+    }
+
     &.extended {
         @include respond(md) {
             max-width: 1024px;
