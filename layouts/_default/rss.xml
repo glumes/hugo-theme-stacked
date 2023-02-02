@@ -48,7 +48,7 @@
                     {{- end -}}
                     {{ $content }}
 
-                    {{- $link := printf `<a href="%s">%s</a>` .Permalink (T "rss.linkTitle") | html }}
+                    {{- $link := printf `<a href="%s">%s</a>` .Permalink (T "rss.linkTitle") }}
                     {{ `<hr/><em>` | html }}{{ T "rss.readMore" (dict "PageLink" $link) }}{{ "</em>" | html }}
                 </description>
             </item>
