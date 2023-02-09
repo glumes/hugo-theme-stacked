@@ -206,7 +206,7 @@
 
     #TableOfContents {
         overflow-x: auto;
-        max-height: 74vh;
+        max-height: var(--toc-max-height);
 
         ol,
         ul {
