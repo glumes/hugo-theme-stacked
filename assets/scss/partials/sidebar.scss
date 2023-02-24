@@ -81,6 +81,11 @@
         padding-top: var(--main-top-padding);
         padding-bottom: var(--main-top-padding);
     }
+
+    // apply the font config for the sidebar title
+    code {
+        font-family: var(--code-font-family);
+    }
 }
 
 .right-sidebar--compact {
