@@ -8,6 +8,7 @@
         margin: 0;
         background: var(--panel-titlebar-color);
         transition: border-radius 0.3s ease;
+        font-family: var(--base-font-family);
 
         display: flex;
         align-items: center;
@@ -35,7 +36,6 @@
     }
 
     .article-notice-title {
-        font-family: var(--base-font-family);
         padding: 4px calc((var(--card-padding)) * 0.5);
         border-radius: var(--panel-border-radius) var(--panel-border-radius) 0 0;
         cursor: pointer;
@@ -44,27 +44,13 @@
             background-color: var(--panel-hover-color);
         }
     }
+
     .article-notice-title-only {
         border-radius: var(--panel-border-radius);
         padding: calc((var(--card-padding)) * 0.5);
     }
 
-    .article-notice-body {
-        box-shadow: var(--shadow-l1);
-        background-color: var(--panel-background-color);
-        border-radius: 0 0 var(--panel-border-radius) var(--panel-border-radius);
-
-        height: auto;
-        transition: height 0.3s ease, border-radius 0.3s ease;
-        overflow: hidden;
-
-        section {
-            display: block;
-            padding: calc((var(--card-padding)) * 0.5) var(--card-padding);
-        }
-    }
-
-    &:not(.active-class) {
+    &:not([open]) {
         .article-notice-title {
             border-radius: var(--panel-border-radius);
 
@@ -72,8 +58,33 @@
                 transform: rotate(90deg);
             }
         }
-        .article-notice-body {
-            border-radius: var(--panel-border-radius);
+    }
+
+    .article-notice-body {
+        box-shadow: var(--shadow-l1);
+        background-color: var(--panel-background-color);
+
+        height: auto;
+        overflow: hidden;
+        border-bottom-left-radius: var(--panel-border-radius);
+        border-bottom-right-radius: var(--panel-border-radius);
+
+        section {
+            display: block;
+            padding: calc((var(--card-padding)) * 0.5) var(--card-padding);
+        }
+    }
+
+    &[open] .article-notice-body {
+        animation: panel-open .4s;
+        section {
+            animation: panel-text-open .4s;
+        }
+    }
+    &.closing .article-notice-body {
+        animation: panel-close .4s;
+        section {
+            animation: panel-text-close .4s;
         }
     }
     

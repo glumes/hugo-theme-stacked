@@ -11,8 +11,9 @@
     {{ $class = $class | append $style }}
 {{ end }}
 
-<div class="{{ delimit $class ` ` }}">
-    <div class={{ if $hasInner }}"article-notice-title"{{ else }}"article-notice-title-only"{{ end }}>
+{{ if $hasInner }}
+<details class="{{ delimit $class ` ` }}" {{ if not $fold }}open{{ end }}>
+    <summary class="article-notice-title">
         {{ with .Get "icon" }}
             {{ partial "helper/icon" . }}
         {{ else }}
@@ -21,15 +22,25 @@
             {{ end }}
         {{ end }}
         <span>{{ $title }}</span>
-        {{ if $hasInner }}
-            {{ partial "helper/icon" "chevron-right" }}
-        {{ end }}
-    </div>
-    {{ if $hasInner }}
-    <div class="article-notice-body" {{ if $fold }}style="height: 0px;"{{ end }}>
+        {{ partial "helper/icon" "chevron-right" }}
+    </summary>
+    <div class="article-notice-body">
         <section>
             {{ .Inner | .Page.RenderString }}
         </section>
     </div>
-    {{ end }}
+</details>
+{{ else }}
+<div class="{{ delimit $class ` ` }}">
+    <div class="article-notice-title-only">
+        {{ with .Get "icon" }}
+            {{ partial "helper/icon" . }}
+        {{ else }}
+            {{ if (ne $style "_unset") }}
+                {{ partial "helper/icon" (printf "notice/%s" $style) }}
+            {{ end }}
+        {{ end }}
+        <span>{{ $title }}</span>
+    </div>
 </div>
+{{ end }}
