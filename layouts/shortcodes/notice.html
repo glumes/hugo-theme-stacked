@@ -4,9 +4,6 @@
 {{- $hasInner := gt (len (trim .Inner " \r\n")) 0 }}
 
 {{ $class := slice "article-notice" }}
-{{ if not $fold }}
-    {{ $class = $class | append "active-class" }}
-{{ end }}
 {{ if (ne $style "_unset") }}
     {{ $class = $class | append $style }}
 {{ end }}

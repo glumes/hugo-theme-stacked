@@ -1,20 +1,22 @@
 {{ with .Inner }}{{/* don't do anything, just call it */}}{{ end }}
 {{ $groupId := default "_default" (.Get "groupId") }}
 <div class="tab-panel">
-    <ul class="tab-nav">
-    {{ range $idx, $tab := .Scratch.Get "tabs" }}
-        <li data-tab-item="{{ .name }}" data-tab-group="{{ $groupId }}"
-            class="tab-nav-item {{ cond (eq $idx 0) "active-class" ""}}">
-            <div class="tab-nav-divider"></div>
-            <div class="tab-nav-background">
-                {{ readFile "/assets/img/tab-border.svg" | safeHTML }}
-            </div>
-            <div class="tab-nav-content">
-                <div class="tab-nav-title">{{ .name }}</div>
-            </div>
-        </li>
-    {{ end }}
-    </ul>
+    <div class="tab-nav-wrapper">
+        <ul class="tab-nav">
+        {{ range $idx, $tab := .Scratch.Get "tabs" }}
+            <li data-tab-item="{{ .name }}" data-tab-group="{{ $groupId }}"
+                class="tab-nav-item {{ cond (eq $idx 0) "active-class" ""}}">
+                <div class="tab-nav-divider"></div>
+                <div class="tab-nav-background">
+                    {{ readFile "/assets/img/tab-border.svg" | safeHTML }}
+                </div>
+                <div class="tab-nav-content">
+                    <div class="tab-nav-title">{{ .name }}</div>
+                </div>
+            </li>
+        {{ end }}
+        </ul>
+    </div>
     <div class="tab-content">
         {{ range $idx, $tab := .Scratch.Get "tabs" }}
         <div data-tab-item="{{ .name }}" data-tab-group="{{ $groupId }}" class="tab-item {{ cond (eq $idx 0) "active-class" ""}}">

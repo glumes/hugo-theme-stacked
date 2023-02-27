@@ -22,17 +22,16 @@
             width: 24px;
             height: 24px;
             stroke-width: 2;
-
-            &:first-child {
-                margin-right: 4px;
-                margin-left: -1px;
-            }
-            &:last-child {
-                margin-right: -4px;
-                transform: rotate(-90deg);
-                transition: transform 0.3s ease;
-            }
-        }      
+        }
+        & > svg:first-child {
+            margin-right: 4px;
+            margin-left: -1px;
+        }
+        & > svg:last-child {
+            margin-right: -4px;
+            transform: rotate(-90deg);
+            transition: transform 0.3s ease;
+        }
     }
 
     .article-notice-title {
@@ -53,10 +52,9 @@
     &:not([open]) {
         .article-notice-title {
             border-radius: var(--panel-border-radius);
-
-            svg:last-child {
-                transform: rotate(90deg);
-            }
+        }
+        .article-notice-title > svg:last-child {
+            transform: rotate(90deg);
         }
     }
 
@@ -100,6 +98,68 @@
             .article-notice-body {
                 background-color: opacify($background-color, 0.01);
             }
+        }
+    }
+}
+
+// for code panels
+.article-notice.code-notice {
+    .article-notice-title div {
+        margin-right: 8px;
+
+        &.code-lang {
+            font-weight: bolder;
+            font-style: italic;
+            font-family: var(--sys-font-family);
+        }
+
+        // buttons
+        &.panel-button {
+            height: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            
+            &:hover {
+                color: var(--accent-color);
+            }
+            
+            .copy-success {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+    
+            &[data-active] .copy-success {
+                opacity: 1;
+            }
+            
+            &[data-action=number] {
+                color: var(--accent-color-darker);
+    
+                &:hover {
+                    color: var(--accent-color);
+                }
+            }
+        }
+    }
+
+    // show tool buttons only when open
+    &[open] div.panel-button {
+        opacity: 1;
+    }
+
+    .article-notice-body {
+        padding: calc(var(--card-padding)/2);
+        background-color: var(--pre-background-color);
+    }
+    
+    // when hide line number
+    &.code-hide-lineno {
+        .article-notice-title div.panel-button[data-action=number] {
+            color: var(--body-text-color);
+        }
+
+        .lnt {
+            display: none;
         }
     }
 }

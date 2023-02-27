@@ -381,6 +381,13 @@
                 text-decoration: underline;
             }
         }
+
+        & > svg {
+            color: var(--card-background);
+            position: absolute;
+            top: calc(var(--card-padding) - 12px);
+            right: calc(var(--card-padding));
+        }
     }
 
     hr {
@@ -427,15 +434,6 @@
     }
 
     .highlight {
-        background-color: var(--pre-background-color);
-        padding: var(--card-padding);
-        position: relative;
-
-        &:hover {
-            .copyCodeButton {
-                opacity: 1;
-            }
-        }
         // keep Codeblocks LTR
         [dir="rtl"] & {
             direction: ltr;
@@ -448,34 +446,48 @@
         }
     }
 
-    .copyCodeButton {
-        position: absolute;
-        top: calc(var(--card-padding));
-        right: calc(var(--card-padding));
-        background: var(--card-background);
-        border: none;
-        box-shadow: var(--shadow-l2);
-        border-radius: var(--tag-border-radius);
-        padding: 8px 16px;
-        color: var(--card-text-color-main);
-        cursor: pointer;
-        font-size: 14px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+    .codeblock {
+        position: relative;
+        padding: var(--card-padding);
+        background-color: var(--pre-background-color);
+
+        .code-lang {
+            position: absolute;
+            top: calc(var(--card-padding) - 12px);
+            right: calc(var(--card-padding));
+
+            color: var(--card-background);
+            font-size: 24px;
+            font-weight: bolder;
+            font-style: italic;
+            font-family: var(--sys-font-family);
+
+            user-select: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        &:hover .code-lang{
+            color: var(--accent-color-darker);
+            
+            &:hover {
+                color: var(--accent-color)
+            }
+        }
     }
 
     .table-wrapper {
         padding: 0 var(--card-padding);
+        margin: var(--card-padding) 0;
         overflow-x: auto;
         display: block;
-    }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        margin-bottom: 1.5em;
-        font-size: 0.96em;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 0.96em;
+        }
     }
 
     th,
@@ -493,10 +505,19 @@
         background-color: var(--tr-even-background-color);
     }
 
+    kbd {
+        font-family: var(--code-font-family);
+        border: 1px solid var(--accent-color);
+        box-shadow: inset 0 -2px 0 0 hsla(0,0%,100%,0.4);
+        padding: 0 4px;
+        border-radius: 3px;
+        background-color: var(--code-background-color);
+    }
+
     /// Negative margins
     blockquote,
     figure,
-    .highlight,
+    .codeblock,
     .gallery,
     .video-wrapper,
     .table-wrapper,

@@ -68,34 +68,34 @@ let Stack = {
 
 
         /**
-         * Add copy button to code block
+         * Add copy ability to language markers in the code block
         */
-        const highlights = document.querySelectorAll('.article-content div.highlight');
-        const copyText = `Copy`,
-            copiedText = `Copied!`;
+        const codeblocks = document.querySelectorAll('.article-content div.codeblock');
+        codeblocks.forEach(block => {
+            const code = block.querySelector('code[data-lang]');
+            if (!code) return;
 
-        highlights.forEach(highlight => {
-            const copyButton = document.createElement('button');
-            copyButton.innerHTML = copyText;
-            copyButton.classList.add('copyCodeButton');
-            highlight.appendChild(copyButton);
+            const lang = block.querySelector('div.code-lang')
+            if (!lang) return;
 
-            const codeBlock = highlight.querySelector('code[data-lang]');
-            if (!codeBlock) return;
+            const animate = () => {
+                lang.textContent = `COPIED`;
 
-            copyButton.addEventListener('click', () => {
-                navigator.clipboard.writeText(codeBlock.textContent)
-                    .then(() => {
-                        copyButton.textContent = copiedText;
+                setTimeout(() => {
+                    lang.textContent = lang_text;
+                }, 2000);
+            };
 
-                        setTimeout(() => {
-                            copyButton.textContent = copyText;
-                        }, 1000);
-                    })
-                    .catch(err => {
-                        alert(err)
-                        console.log('Something went wrong', err);
-                    });
+            const lang_text = lang.textContent
+            lang.addEventListener('click', () => {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(code.textContent)
+                        .then(animate)
+                        .catch(err => alert(err));
+                } else {
+                    console.log("Tried to copy " + code.textContent.length + " chars, this is a no-op.")
+                    // animate();
+                }
             });
         });
 

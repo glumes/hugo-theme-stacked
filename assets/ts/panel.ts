@@ -18,7 +18,7 @@ function setupPanelToggles() {
 
     // register closing animation of notice panels
     document.querySelectorAll("details.article-notice").forEach(notice => {
-        notice.addEventListener("click", function(e) {
+        notice.querySelector("summary").addEventListener("click", function(e) {
             if (notice.hasAttribute("open")) {
                 e.preventDefault();
                 notice.classList.add("closing");
@@ -28,6 +28,45 @@ function setupPanelToggles() {
                 }, 300);
             }
         });
+
+        const button_copy = notice.querySelector("div.panel-button[data-action='copy']");
+        if (button_copy) {
+            button_copy.addEventListener("click", function(e) {
+                // don't fold the panel
+                e.preventDefault();
+                e.stopPropagation();
+    
+                const animate = () => {
+                    button_copy.setAttribute("data-active", '');
+
+                    setTimeout(() => {
+                        button_copy.removeAttribute("data-active");
+                    }, 2000);
+                };
+
+                const code = notice.querySelector('code[data-lang]');
+                if (!code) return;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(code.textContent)
+                    .then(animate)
+                    .catch(err => alert(err));
+                } else {
+                    console.log("Tried to copy " + code.textContent.length + " chars, this is a no-op.");
+                    // animate()
+                }
+            });
+        }
+
+        const button_lineno = notice.querySelector("div.panel-button[data-action='number']");
+        if (button_lineno) {
+            button_lineno.addEventListener("click", function(e) {
+                // don't fold the panel
+                e.preventDefault();
+                e.stopPropagation();
+    
+                notice.classList.toggle("code-hide-lineno");
+            });
+        }
     });
 }
 
