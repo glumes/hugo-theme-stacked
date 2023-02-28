@@ -49,7 +49,7 @@
             <div data-tab-item="{{ .name }}" data-tab-group="{{ $groupId }}"
                 class="{{ delimit $class ` ` }}">
                 {{ if .type }}
-                    {{ highlight (trim .content "\n") .type }}
+                    {{ highlight (trim .content "\r\n") .type }}
                 {{ else }}
                     {{ .content }}
                 {{ end }}

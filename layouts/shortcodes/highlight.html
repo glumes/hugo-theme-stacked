@@ -13,6 +13,6 @@
         {{ partial "helper/icon" "chevron-right" }}
     </summary>
     <div class="article-notice-body">
-        {{ highlight (trim .Inner "\n") $type $options }}
+        {{ highlight (trim .Inner "\r\n") $type $options }}
     </div>
 </details>

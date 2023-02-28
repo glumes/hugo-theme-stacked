@@ -7,9 +7,7 @@
 	{{ with .Inner }}
         {{ $.Parent.Scratch.Add "tabs" (dict "name" $name "content" . "type" $type) }}
 	{{ end }}
-	{{ if $type }}
-		{{ .Parent.Scratch.Set "has_code" 1}}
-	{{ end }}
+	{{ .Parent.Scratch.Set "has_code" 1}}
 {{ else }}
 	{{- errorf "[%s] %q: tab shortcode missing its parent" site.Language.Lang .Page.Path -}}
 {{ end}}
