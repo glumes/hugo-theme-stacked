@@ -15,7 +15,7 @@ function debounced(func: Function) {
 const headersQuery = ".article-content h1[id], .article-content h2[id], .article-content h3[id], .article-content h4[id], .article-content h5[id], .article-content h6[id]";
 const tocQuery = "#TableOfContents";
 const navigationQuery = "#TableOfContents li";
-const activeClass = "active-class";
+const activeClass = "is-active";
 
 function scrollToTocElement(tocElement: HTMLElement, scrollableNavigation: HTMLElement) {
     let textHeight = tocElement.querySelector("a").offsetHeight;

@@ -16,8 +16,8 @@ function setupPanelToggles() {
         });
     }
 
-    // register closing animation of notice panels
     document.querySelectorAll("details.article-notice").forEach(notice => {
+        // register closing animation of notice panels
         notice.querySelector("summary").addEventListener("click", function(e) {
             if (notice.hasAttribute("open")) {
                 e.preventDefault();
@@ -29,18 +29,19 @@ function setupPanelToggles() {
             }
         });
 
+        // register copy button behavior
         const button_copy = notice.querySelector("div.panel-button[data-action='copy']");
         if (button_copy) {
-            button_copy.addEventListener("click", function(e) {
+            button_copy.addEventListener("click", e => {
                 // don't fold the panel
                 e.preventDefault();
                 e.stopPropagation();
     
                 const animate = () => {
-                    button_copy.setAttribute("data-active", '');
+                    button_copy.classList.add("is-active");
 
                     setTimeout(() => {
-                        button_copy.removeAttribute("data-active");
+                        button_copy.classList.remove("is-active");
                     }, 2000);
                 };
 
@@ -57,6 +58,7 @@ function setupPanelToggles() {
             });
         }
 
+        // register number button behavior
         const button_lineno = notice.querySelector("div.panel-button[data-action='number']");
         if (button_lineno) {
             button_lineno.addEventListener("click", function(e) {

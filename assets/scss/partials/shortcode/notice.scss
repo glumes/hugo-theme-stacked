@@ -128,7 +128,7 @@
                 transition: opacity 0.3s ease;
             }
     
-            &[data-active] .copy-success {
+            &[is-active] .copy-success {
                 opacity: 1;
             }
             

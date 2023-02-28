@@ -12,7 +12,7 @@ import createElement from 'ts/createElement';
 import StackColorScheme from 'ts/colorScheme';
 import { setupScrollspy } from 'ts/scrollspy';
 import { setupSmoothAnchors } from "ts/smoothAnchors";
-import { setupTabSwitchers } from "ts/tabs";
+import { setupTabSwitchers, setupTabToggles } from "ts/tabs";
 import { setupRightbarToggle, setupBottomNavbar } from "ts/navbar";
 import { setupPanelToggles } from "ts/panel";
 
@@ -100,9 +100,10 @@ let Stack = {
         });
 
         /**
-         * Register click events for tabular navigation buttons
+         * Register click events for tabbed navigation buttons
          */
         setupTabSwitchers();
+        setupTabToggles();
         
         /**
          * Register click event for the right sidebar toggle
