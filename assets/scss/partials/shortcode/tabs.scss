@@ -68,6 +68,7 @@
             margin: 15px 8px 5px 0;
             height: 24px;
             flex: 0;
+            cursor: pointer;
             
             svg {
                 width: 24px;
@@ -84,7 +85,7 @@
                 transition: opacity 0.3s ease;
             }
     
-            &[is-active] .copy-success {
+            &.is-active .copy-success {
                 opacity: 1;
             }
             

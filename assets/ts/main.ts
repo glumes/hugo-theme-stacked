@@ -33,6 +33,12 @@ let Stack = {
              * Register panel open toggles
              */
             setupPanelToggles();
+
+            /**
+             * Register click events for tabbed navigation buttons
+             */
+            setupTabSwitchers();
+            setupTabToggles();
         }
 
         /**

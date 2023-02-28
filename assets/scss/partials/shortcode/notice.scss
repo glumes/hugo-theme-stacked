@@ -111,6 +111,7 @@
             font-weight: bolder;
             font-style: italic;
             font-family: var(--sys-font-family);
+            user-select: none;
         }
 
         // buttons
@@ -128,7 +129,7 @@
                 transition: opacity 0.3s ease;
             }
     
-            &[is-active] .copy-success {
+            &.is-active .copy-success {
                 opacity: 1;
             }
             
