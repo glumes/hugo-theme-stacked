@@ -18,7 +18,12 @@
         {{- $DesignedBy := `<a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>` -}}
         {{- $ModifiedBy := `Jacob` -}}
 
-        {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} <br />
+        {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} &nbsp;&nbsp;
         {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy "ModifiedBy" $ModifiedBy) | safeHTML }}
     </section>
+
+    <p class="text-center">
+        <a target="_blank"; href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral";>
+        <img style="height:15px;width:auto;"; src="/img/upyun_logo.png">
+        </a>
 </footer>
